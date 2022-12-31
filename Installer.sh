@@ -1,11 +1,15 @@
 #!/bin/bash
 
 echo "Hi, this program is written by Ben"
+echo "Scripts:"
 echo "1 - Download the JDK"
 echo "2 - Download Runelite"
 echo "3 - Update Runelite"
 echo "4 - Download all and run Runelite"
-echo "5 - Run Runelite"
+echo "5 - Remove Everything"
+echo "6 - Run Runelite"
+echo 
+echo "Please enter the script you would like to run:"
 
 read input
 if test $input -eq 1
@@ -36,6 +40,13 @@ then
 
     jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --nojvm
 elif test $input -eq 5
+then
+    # Remove everything
+    rm -rf client-home
+    rm -rf client-tmp
+    rm -rf jdk-11
+    rm RuneLite.jar
+elif test $input -eq 6
 then 
     # Run Runelite
     jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --nojvm
