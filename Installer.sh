@@ -1,20 +1,36 @@
+#!/bin/bash
+
 read input
 if test $input -eq 1
 then 
-    sh Scripts/1-DownloadJDK.sh
+    # Download the JDK
+    curl -L "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.17%2B8/OpenJDK11U-jdk_aarch64_mac_hotspot_11.0.17_8.tar.gz" --output mac.tar.gz
+    mkdir jdk-11
+    tar -xf mac.tar.gz -C jdk-11 --strip-components 1
+    rm mac.tar.gz
 elif test $input -eq 2
 then 
-    sh Scripts/2-DownloadRunelite.sh
+    # Download the latest .jar of Runelite
+    curl -L "https://github.com/runelite/launcher/releases/latest/download/runelite.jar" --output RuneLite.jar
 elif test $input -eq 3
 then 
-    sh Scripts/3-UpdateRunelite.sh
+    # Update to the latest .jar of Runelite
+    rm RuneLite.jar
+    curl -L "https://github.com/runelite/launcher/releases/latest/download/runelite.jar" --output RuneLite.jar
 elif test $input -eq 4
 then 
-    sh Scripts/4-Runelite.sh
+    # Run Runelite
+    jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --nojvm
 elif test $input -eq 5
 then 
-    sh Scripts/1-DownloadJDK.sh
-    sh Scripts/2-DownloadRunelite.sh
-    sh Scripts/3-UpdateRunelite.sh
-    sh Scripts/4-Runelite.sh
+    # Download all, and run Runelite
+    curl -L "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.17%2B8/OpenJDK11U-jdk_aarch64_mac_hotspot_11.0.17_8.tar.gz" --output mac.tar.gz
+    mkdir jdk-11
+    tar -xf mac.tar.gz -C jdk-11 --strip-components 1
+    rm mac.tar.gz
+    
+    curl -L "https://github.com/runelite/launcher/releases/latest/download/runelite.jar" --output RuneLite.jar
+
+    jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --nojvm
+
 fi
