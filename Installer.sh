@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo "Hi, this program is written by Ben"
+echo "1 - Download the JDK"
+echo "2 - Download Runelite"
+echo "3 - Update Runelite"
+echo "4 - Download all and run Runelite"
+echo "5 - Run Runelite"
+
 read input
 if test $input -eq 1
 then 
@@ -19,10 +26,6 @@ then
     curl -L "https://github.com/runelite/launcher/releases/latest/download/runelite.jar" --output RuneLite.jar
 elif test $input -eq 4
 then 
-    # Run Runelite
-    jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --nojvm
-elif test $input -eq 5
-then 
     # Download all, and run Runelite
     curl -L "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.17%2B8/OpenJDK11U-jdk_aarch64_mac_hotspot_11.0.17_8.tar.gz" --output mac.tar.gz
     mkdir jdk-11
@@ -32,5 +35,8 @@ then
     curl -L "https://github.com/runelite/launcher/releases/latest/download/runelite.jar" --output RuneLite.jar
 
     jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --nojvm
-
+elif test $input -eq 5
+then 
+    # Run Runelite
+    jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --nojvm
 fi
