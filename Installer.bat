@@ -17,16 +17,15 @@ IF /I "%input%" EQU "4" goto Everything
 IF /I "%input%" EQU "5" goto RemoveAll
 IF /I "%input%" EQU "6" goto Run
 
-
 :DownloadJDK
 curl "-L" "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.17%%2B8/OpenJDK11U-jdk_x64_windows_hotspot_11.0.17_8.zip" "--output" "win.zip"
 mkdir "jdk-11"
 tar "-xf" "win.zip" "-C" "jdk-11" "--strip-components" "1"
-DEL  "win.zip"
+DEL "win.zip"
 goto end
 
 :UpdateJar
-DEL  "RuneLite.jar"
+DEL "RuneLite.jar"
 goto DownloadJar
 
 :DownloadJar
@@ -37,7 +36,7 @@ goto end
 curl "-L" "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.17%%2B8/OpenJDK11U-jdk_x64_windows_hotspot_11.0.17_8.zip" "--output" "win.zip"
 mkdir "jdk-11"
 tar "-xf" "win.zip" "-C" "jdk-11" "--strip-components" "1"
-DEL  "win.zip"
+DEL "win.zip"
 curl "-L" "https://github.com/runelite/launcher/releases/latest/download/runelite.jar" "--output" "RuneLite.jar"
 goto Run
 
@@ -45,7 +44,7 @@ goto Run
 RMDIR /S /Q "client-home"
 RMDIR /S /Q "client-tmp"
 RMDIR /S /Q "jdk-11"
-DEL  "RuneLite.jar"
+DEL "RuneLite.jar"
 goto end
 
 :Run
