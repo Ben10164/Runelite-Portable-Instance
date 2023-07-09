@@ -8,6 +8,7 @@ echo "3 - Update Runelite"
 echo "4 - Download all and run Runelite"
 echo "5 - Remove Everything"
 echo "6 - Run Runelite"
+echo "7 - Fix Invalid Jar"
 echo
 echo "Please enter the script you would like to run:"
 
@@ -34,14 +35,19 @@ elif test $input -eq 4; then
 
     curl -L "https://github.com/runelite/launcher/releases/latest/download/runelite.jar" --output RuneLite.jar
 
-    jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --nojvm
+    jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --launch-mode=REFLECT
 elif test $input -eq 5; then
     # Remove everything
-    rm -rf client-home
-    rm -rf client-tmp
     rm -rf jdk-11
     rm RuneLite.jar
 elif test $input -eq 6; then
     # Run Runelite
-    jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --nojvm
+    jdk-11/Contents/Home/bin/java -Duser.home=client-home -Djava.io.tmpdir=client-tmp -jar RuneLite.jar --launch-mode=REFLECT
+elif test $input -eq 7; then
+    # Fix Invalid Jar
+    rm RuneLite.jar
+    echo "The last release does not contain a Universal Jar"
+    echo "Attempting to run a Python file (Requires Python and the Requests package)"
+    url=$(python3 GetURL.py)
+    curl -L $url --output RuneLite.jar
 fi
