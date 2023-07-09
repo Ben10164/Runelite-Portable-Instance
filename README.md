@@ -3,7 +3,7 @@ This is a script that can be used anywhere to create a portable Runelite instanc
 
 ### *What is a portable Runelite instance?*
 [Runelite](https://runelite.net) is a client to run the popular game [Old School Runescape](https://oldschool.runescape.com) that features many quality of life features.  
-A portable instance Runelite instance is a way to keep Runelite contained in a single folder. This also makes it possible to have multiple Runelite instances that to not impact each other. A portable instance will contain its own plugins and configurations completely separate from any other instance of Runelite.
+A portable Runelite instance is a way to keep Runelite contained in a single folder. This also makes it possible to have multiple Runelite instances that to not impact each other. A portable instance will contain its own plugins and configurations completely separate from any other instance of Runelite.
 
 ## How to use
 ### MacOS (M1)
