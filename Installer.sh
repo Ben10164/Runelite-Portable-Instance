@@ -39,6 +39,8 @@ elif test $input -eq 4; then
 elif test $input -eq 5; then
     # Remove everything
     rm -rf jdk-11
+    rm -rf client-home
+    rm -rf client-tmp
     rm RuneLite.jar
 elif test $input -eq 6; then
     # Run Runelite
