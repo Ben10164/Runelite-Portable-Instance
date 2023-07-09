@@ -12,9 +12,11 @@ A portable Runelite instance is a way to keep Runelite contained in a single fol
 1. There will be multiple options to choose from. Enter the option you want. 
     * Option `4` is the recommended option upon first start as it downloads and runs everything.
     * Following the initial startup, option `6` is recommended as it quickly opens Runelite.
+    * If you run into the issue of 'Invalid or Corrupt Jar File', run option 7. 
 ### Windows (64)
 1. Open a command prompt window in a new Folder that you would want the Runelite instance to be located.
 1. Run the command `Installer.bat` to run the bat file.
 1. There will be multiple options to choose from. Enter the option you want. 
     * Option `4` is the recommended option upon first start as it downloads and runs everything.
     * Following the initial startup, option `6` is recommended as it quickly opens Runelite.
+    * If you run into the issue of 'Invalid or Corrupt Jar File', run option 7. 
